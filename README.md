@@ -49,7 +49,7 @@ Define an object type for a `User` that includes:
 - `email` (string)
 - `displayName` (optional string)
 
-Then, create two example users: one with a `displayName` and one without.
+Then, create two example users: one with a `displayName` called `userWithName` and one without called `userWithoutName`.
 
 ### 🔹 section4_literal_types.ts
 
