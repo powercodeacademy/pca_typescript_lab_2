@@ -20,7 +20,7 @@ Welcome to **Lab 2** of the TypeScript Labs! In this lab, you’ll deepen your u
 
 ```bash
 npm install
-npm test"
+npm test
 ```
 
 ## 🗂️ Lab Structure & Tasks
