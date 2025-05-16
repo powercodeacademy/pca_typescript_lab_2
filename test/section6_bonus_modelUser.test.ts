@@ -8,7 +8,7 @@ describe("Lab 2 — Bonus: UserProfile", () => {
   let context: any = {};
 
   before(() => {
-    const filePath = join(__dirname, "../src/bonus_modelUser.ts");
+    const filePath = join(__dirname, "../src/section6_bonus_modelUser.ts");
     const tsCode = readFileSync(filePath, "utf8");
     const jsCode = ts.transpile(tsCode);
     vm.createContext(context);

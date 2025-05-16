@@ -8,7 +8,7 @@ describe("Lab 2 — Bonus: Shopping Cart", () => {
   let context: any = {};
 
   before(() => {
-    const filePath = join(__dirname, "../src/bonus_shoppingCart.ts");
+    const filePath = join(__dirname, "../src/section7_bonus_shoppingCart.ts");
     const tsCode = readFileSync(filePath, "utf8");
     const jsCode = ts.transpile(tsCode);
     vm.createContext(context);
