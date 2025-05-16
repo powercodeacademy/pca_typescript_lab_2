@@ -80,7 +80,7 @@ Design a `UserProfile` type with:
 - `id`, `email`, `username`, `createdAt` (all required)
 - optional `bio` and `avatarUrl`
 
-Create at least one valid `UserProfile` object.
+Create at least one valid `UserProfile` object called `userProfile`.
 
 #### 🔹 bonus_shoppingCart.ts
 

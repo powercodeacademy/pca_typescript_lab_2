@@ -7,6 +7,6 @@
 // - bio?: string (optional)
 // - avatarUrl?: string (optional)
 //
-// Then, create a variable of type UserProfile and assign it a valid object.
+// Then, create a variable of type UserProfile called userProfile and assign it a valid object.
 
 // Your code here 👇
