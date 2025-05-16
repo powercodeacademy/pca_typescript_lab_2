@@ -53,7 +53,7 @@ Then, create two example users: one with a `displayName` called `userWithName` a
 
 ### 🔹 section4_literal_types.ts
 
-Create a variable called `status` that can only be one of:
+Create a variable called `loadingStatus` that can only be one of:
 
 - "loading"
 - "success"

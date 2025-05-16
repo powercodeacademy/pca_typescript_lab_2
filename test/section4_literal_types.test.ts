@@ -15,8 +15,8 @@ describe("Lab 2 — Section 4: Literal Types", () => {
     vm.runInContext(jsCode, context);
   });
 
-  it("should define a variable called 'status' with a valid literal value", () => {
+  it("should define a variable called 'loadingStatus' with a valid literal value", () => {
     const validValues = ["loading", "success", "error"];
-    expect(validValues).to.include(context.status);
+    expect(validValues).to.include(context.loadingStatus);
   });
 });

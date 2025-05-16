@@ -1,5 +1,5 @@
 // TASK:
-// Create a variable called status that can only be one of the following string values:
+// Create a variable called loadingStatus that can only be one of the following string values:
 // - "loading"
 // - "success"
 // - "error"
