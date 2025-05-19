@@ -31,8 +31,5 @@ describe("Lab 2 — Section 5: Type Alias", () => {
     expect(product.name).to.be.a("string");
     expect(product.price).to.be.a("number");
   });
-
-  it("should define a variable 'exampleProduct' with a type of Product", () => {
-    expectVariableExplicitTypeAnnotation(filePath, "exampleProduct", "Product");
-  });
+  expectVariableExplicitTypeAnnotation(filePath, "exampleProduct", "Product");
 });
