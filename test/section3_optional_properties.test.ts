@@ -3,16 +3,25 @@ import * as ts from "typescript";
 import { readFileSync } from "fs";
 import { join } from "path";
 import vm from "vm";
+import { expectVariableExplicitTypeAnnotation } from "chai_typescript_type_annotation_tests";
 
 describe("Lab 2 — Section 3: Optional Properties", () => {
   let context: any = {};
-
+  const filePath = join(__dirname, "../src/section3_optional_properties.ts");
+  const tsCode = readFileSync(filePath, "utf8");
   before(() => {
-    const filePath = join(__dirname, "../src/section3_optional_properties.ts");
-    const tsCode = readFileSync(filePath, "utf8");
     const jsCode = ts.transpile(tsCode);
     vm.createContext(context);
     vm.runInContext(jsCode, context);
+  });
+
+  it("should define a User type with correct keys and types", () => {
+    const sourceCode = readFileSync(filePath, "utf8");
+    expect(sourceCode).to.include("type User");
+    expect(sourceCode).to.match(/type\s+User/);
+    expect(sourceCode).to.match(/id\s*:\s*number/);
+    expect(sourceCode).to.match(/email\s*:\s*string/);
+    expect(sourceCode).to.match(/displayName\s*\?:\s*string/);
   });
 
   it("should define a user with a displayName", () => {
@@ -24,6 +33,8 @@ describe("Lab 2 — Section 3: Optional Properties", () => {
     expect(context.userWithName.displayName).to.be.a("string");
   });
 
+  expectVariableExplicitTypeAnnotation(filePath, "userWithName", "User");
+
   it("should define a user without a displayName", () => {
     expect(context.userWithoutName, "variable userWithoutName is not defined")
       .to.exist;
@@ -32,4 +43,5 @@ describe("Lab 2 — Section 3: Optional Properties", () => {
     expect(context.userWithoutName.email).to.be.a("string");
     expect(context.userWithoutName).to.not.have.property("displayName");
   });
+  expectVariableExplicitTypeAnnotation(filePath, "userWithoutName", "User");
 });
