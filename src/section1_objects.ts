@@ -11,4 +11,11 @@
 //   pages: 310
 // }
 
+// Below we defined an interface called "Book". You must use this as the type for your variable called book.
+interface Book {
+  title: string;
+  author: string;
+  pages: number;
+}
+
 // Your code here 👇
