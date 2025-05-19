@@ -3,16 +3,30 @@ import * as ts from "typescript";
 import { readFileSync } from "fs";
 import { join } from "path";
 import vm from "vm";
+import {
+  expectFunctionParameterTypeAnnotation,
+  expectFunctionReturnTypeAnnotation,
+  expectVariableExplicitTypeAnnotation,
+} from "chai_typescript_type_annotation_tests";
 
 describe("Lab 2 — Bonus: Shopping Cart", () => {
   let context: any = {};
+  const filePath = join(__dirname, "../src/section7_bonus_shoppingCart.ts");
 
   before(() => {
-    const filePath = join(__dirname, "../src/section7_bonus_shoppingCart.ts");
     const tsCode = readFileSync(filePath, "utf8");
     const jsCode = ts.transpile(tsCode);
     vm.createContext(context);
     vm.runInContext(jsCode, context);
+  });
+  it("should define a CartItem type with correct keys and types", () => {
+    const sourceCode = readFileSync(filePath, "utf8");
+    expect(sourceCode).to.include("type CartItem");
+    expect(sourceCode).to.match(/type\s+CartItem/);
+    expect(sourceCode).to.match(/productId\s*:\s*number/);
+    expect(sourceCode).to.match(/name\s*:\s*string/);
+    expect(sourceCode).to.match(/quantity\s*:\s*number/);
+    expect(sourceCode).to.match(/price\s*:\s*number/);
   });
 
   it("should define a cart array with at least one CartItem", () => {
@@ -35,4 +49,15 @@ describe("Lab 2 — Bonus: Shopping Cart", () => {
     );
     expect(total).to.equal(expected);
   });
+
+  expectVariableExplicitTypeAnnotation(filePath, "cart", "CartItem[]");
+
+  expectFunctionParameterTypeAnnotation(
+    filePath,
+    "calculateTotal",
+    "cart",
+    "CartItem[]"
+  );
+
+  expectFunctionReturnTypeAnnotation(filePath, "calculateTotal", "number");
 });
