@@ -3,7 +3,10 @@ import * as ts from "typescript";
 import { readFileSync } from "fs";
 import { join } from "path";
 import vm from "vm";
-import { expectVariableExplicitTypeAnnotation } from "chai_typescript_type_annotation_tests";
+import {
+  expectVariableExplicitTypeAnnotation,
+  expectTypeAliasPropertyTypeAnnotation,
+} from "chai_typescript_type_annotation_tests";
 
 describe("Lab 2 — Bonus: UserProfile", () => {
   let context: any = {};
@@ -24,7 +27,46 @@ describe("Lab 2 — Bonus: UserProfile", () => {
     expect(sourceCode).to.match(/username\s*:\s*string/);
     expect(sourceCode).to.match(/email\s*:\s*string/);
     expect(sourceCode).to.match(/createdAt\s*:\s*string/);
+    expect(sourceCode).to.match(/bio\?\s*:\s*string/);
+    expect(sourceCode).to.match(/avatarUrl\?\s*:\s*string/);
   });
+
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "UserProfile",
+    "id",
+    "number"
+  );
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "UserProfile",
+    "username",
+    "string"
+  );
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "UserProfile",
+    "email",
+    "string"
+  );
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "UserProfile",
+    "createdAt",
+    "string"
+  );
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "UserProfile",
+    "bio",
+    "string"
+  );
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "UserProfile",
+    "avatarUrl",
+    "string"
+  );
 
   it("should define a userProfile object with required fields", () => {
     const user = context.userProfile;

@@ -7,6 +7,7 @@ import {
   expectFunctionParameterTypeAnnotation,
   expectFunctionReturnTypeAnnotation,
   expectVariableExplicitTypeAnnotation,
+  expectTypeAliasPropertyTypeAnnotation,
 } from "chai_typescript_type_annotation_tests";
 
 describe("Lab 2 — Bonus: Shopping Cart", () => {
@@ -28,6 +29,31 @@ describe("Lab 2 — Bonus: Shopping Cart", () => {
     expect(sourceCode).to.match(/quantity\s*:\s*number/);
     expect(sourceCode).to.match(/price\s*:\s*number/);
   });
+
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "CartItem",
+    "productId",
+    "number"
+  );
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "CartItem",
+    "name",
+    "string"
+  );
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "CartItem",
+    "quantity",
+    "number"
+  );
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "CartItem",
+    "price",
+    "number"
+  );
 
   it("should define a cart array with at least one CartItem", () => {
     const cart = context.cart;

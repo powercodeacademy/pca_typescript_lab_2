@@ -3,7 +3,10 @@ import * as ts from "typescript";
 import { readFileSync } from "fs";
 import { join } from "path";
 import vm from "vm";
-import { expectVariableExplicitTypeAnnotation } from "chai_typescript_type_annotation_tests";
+import {
+  expectVariableExplicitTypeAnnotation,
+  expectTypeAliasPropertyTypeAnnotation,
+} from "chai_typescript_type_annotation_tests";
 
 describe("Lab 2 — Section 3: Optional Properties", () => {
   let context: any = {};
@@ -23,6 +26,15 @@ describe("Lab 2 — Section 3: Optional Properties", () => {
     expect(sourceCode).to.match(/email\s*:\s*string/);
     expect(sourceCode).to.match(/displayName\s*\?:\s*string/);
   });
+
+  expectTypeAliasPropertyTypeAnnotation(filePath, "User", "id", "number");
+  expectTypeAliasPropertyTypeAnnotation(filePath, "User", "email", "string");
+  expectTypeAliasPropertyTypeAnnotation(
+    filePath,
+    "User",
+    "displayName",
+    "string"
+  );
 
   it("should define a user with a displayName", () => {
     expect(context.userWithName, "variable userWithName is not defined").to

@@ -3,7 +3,10 @@ import * as ts from "typescript";
 import { readFileSync } from "fs";
 import { join } from "path";
 import vm from "vm";
-import { expectVariableExplicitTypeAnnotation } from "chai_typescript_type_annotation_tests";
+import {
+  expectVariableExplicitTypeAnnotation,
+  expectTypeAliasPropertyTypeAnnotation,
+} from "chai_typescript_type_annotation_tests";
 
 describe("Lab 2 — Section 5: Type Alias", () => {
   let context: any = {};
@@ -32,4 +35,7 @@ describe("Lab 2 — Section 5: Type Alias", () => {
     expect(product.price).to.be.a("number");
   });
   expectVariableExplicitTypeAnnotation(filePath, "exampleProduct", "Product");
+  expectTypeAliasPropertyTypeAnnotation(filePath, "Product", "id", "number");
+  expectTypeAliasPropertyTypeAnnotation(filePath, "Product", "name", "string");
+  expectTypeAliasPropertyTypeAnnotation(filePath, "Product", "price", "number");
 });
