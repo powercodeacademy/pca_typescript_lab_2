@@ -19,3 +19,9 @@ interface Book {
 }
 
 // Your code here 👇
+
+const book: Book = {
+  title: "The Hobbit",
+  author: "J.R.R. Tolkien",
+  pages: 310,
+};
