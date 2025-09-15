@@ -12,3 +12,19 @@
 //    - returns the total cost (sum of quantity × price for each item)
 
 // Your code here 👇
+
+type CartItem = {
+  productId: number;
+  name: string;
+  quantity: number;
+  price: number;
+};
+
+let cart: CartItem[] = [{ productId: 3, name: "Josh", quantity: 6, price: 16 }];
+
+function calculateTotal(cart: CartItem[]): number {
+  return cart.reduce(
+    (total: number, item: CartItem) => total + item.quantity * item.price,
+    0
+  );
+}

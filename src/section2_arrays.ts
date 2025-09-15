@@ -19,3 +19,14 @@ type Student = {
 };
 
 // Your code here 👇
+let colors: string[] = ["Red", "Pink", "Green"];
+
+let ages: number[] = [31, 28, 34];
+
+let students: Student[] = [
+  {
+    name: "Shantel",
+    grade: 12,
+  },
+  { name: "Step", grade: 11 },
+];
