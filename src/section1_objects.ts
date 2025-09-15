@@ -19,3 +19,8 @@ interface Book {
 }
 
 // Your code here 👇
+const book: Book = {
+  title: "Piranesi",
+  author: "Susanna Clarke",
+  pages: 200,
+};

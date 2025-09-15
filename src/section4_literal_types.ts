@@ -7,3 +7,5 @@
 // Try assigning valid and invalid values to observe how TypeScript enforces literal types.
 
 // Your code here 👇
+
+const loadingStatus: "loading" | "success" | "error" = "loading";
