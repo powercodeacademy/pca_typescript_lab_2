@@ -19,3 +19,11 @@ type Student = {
 };
 
 // Your code here 👇
+const colors: string[] = ["Red", "Orange", "Yellow"];
+
+const ages: number[] = [80, 34, 2];
+
+const students: Student[] = [
+  { name: "Jack", grade: 8 },
+  { name: "Erin", grade: 3 },
+];
