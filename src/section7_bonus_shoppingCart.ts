@@ -12,3 +12,17 @@
 //    - returns the total cost (sum of quantity × price for each item)
 
 // Your code here 👇
+type CartItem = {
+  productId: number;
+  name: string;
+  quantity: number;
+  price: number;
+};
+
+ const cart: CartItem[] = [
+  {productId: 1, name: "ice", quantity: 2, price: 1},
+  {productId: 2, name: "soda", quantity: 1, price: 2.50},
+  {productId: 3, name: "bread", quantity: 1, price: 4}
+]
+
+const calculateTotal = (cart: CartItem[]): number => cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
