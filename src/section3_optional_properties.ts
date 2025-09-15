@@ -9,3 +9,19 @@
 //    - One user without a displayName called `userWithoutName`
 
 // Your code here 👇
+type User = {
+  id: number;
+  email: string;
+  displayName?: string;
+};
+
+const userWithName: User = {
+  id: 1,
+  email: 'jlsdngjsdn',
+  displayName: 'dsgdfsg'
+}
+
+const userWithoutName: User = {
+  id: 1,
+  email: 'jlsdngjsdn'
+}
