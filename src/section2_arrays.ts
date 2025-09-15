@@ -19,3 +19,8 @@ type Student = {
 };
 
 // Your code here 👇
+ const colors: string[] = ["blue", "red", "macaroni and cheese"];
+
+ const ages: number[] = [44, 44, 44]
+
+ const students: Student[] = [{name: "Nihar", grade: 100}, {name: "Shantissue", grade: 100}]
