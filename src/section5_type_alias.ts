@@ -7,3 +7,15 @@
 // 2. Create a variable called exampleProduct and assign it a valid Product object.
 
 // Your code here 👇
+
+type Product = {
+  id: number
+  name: string
+  price: number
+}
+
+const exampleProduct: Product = {
+  id: 5,
+  name: "book",
+  price: 9.99,
+}

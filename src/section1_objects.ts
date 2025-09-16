@@ -13,9 +13,15 @@
 
 // Below we defined an interface called "Book". You must use this as the type for your variable called book.
 interface Book {
-  title: string;
-  author: string;
-  pages: number;
+  title: string
+  author: string
+  pages: number
 }
 
 // Your code here 👇
+
+let book: Book = {
+  title: "Way of Kings",
+  author: "Brandon Sanderson",
+  pages: 1000,
+}

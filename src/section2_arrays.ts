@@ -14,8 +14,18 @@
 
 // Below, we have defined the type Student. You must use that as part of the type of your student variable
 type Student = {
-  name: string;
-  grade: number;
-};
+  name: string
+  grade: number
+}
 
 // Your code here 👇
+
+const colors: string[] = ["gray", "black", "blue"]
+
+const ages: number[] = [25, 40, 60]
+
+const students: Student[] = [
+  {name: "Bob", grade: 70},
+  {name: "Linda", grade: 100},
+  {name: "Gene", grade: 20},
+]
