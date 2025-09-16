@@ -14,8 +14,18 @@
 
 // Below, we have defined the type Student. You must use that as part of the type of your student variable
 type Student = {
-  name: string;
-  grade: number;
-};
+  name: string
+  grade: number
+}
 
 // Your code here 👇
+let colors: string[] = ['a', 'bb', 'c']
+
+const ages: number[] = [1, 2, 3, 4]
+
+const students: Student[] = [
+  {
+    name: 'string',
+    grade: 3
+  }
+]

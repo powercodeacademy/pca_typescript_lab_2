@@ -12,3 +12,30 @@
 //    - returns the total cost (sum of quantity × price for each item)
 
 // Your code here 👇
+type CartItem = {
+  productId: number
+  name: string
+  quantity: number
+  price: number
+}
+
+const cart: CartItem[] = [
+  {
+    productId: 34,
+    name: 'string',
+    quantity: 383,
+    price: 5
+  },
+  {
+    productId: 345,
+    name: 'strirtng',
+    quantity: 38573,
+    price: 534
+  }
+]
+
+const calculateTotal = (cart: CartItem[]): number => {
+  let total: number = 0
+  cart.forEach((item) => (total += item.price * item.quantity))
+  return total
+}
