@@ -1,9 +1,3 @@
-// TASK:
-// Create a variable called loadingStatus that can only be one of the following string values:
-// - "loading"
-// - "success"
-// - "error"
-//
-// Try assigning valid and invalid values to observe how TypeScript enforces literal types.
+// Create a loadingStatus variable that can only be "loading", "success", or "error"
 
 // Your code here 👇

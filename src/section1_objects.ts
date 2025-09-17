@@ -1,21 +1,14 @@
-// TASK:
-// Define an object variable called `book` with the following properties:
-// - `title`: string
-// - `author`: string
-// - `pages`: number
-//
-// Example:
-// {
-//   title: "The Hobbit",
-//   author: "J.R.R. Tolkien",
-//   pages: 310
-// }
+// Define a book object that matches the Book interface below
 
-// Below we defined an interface called "Book". You must use this as the type for your variable called book.
 interface Book {
-  title: string;
-  author: string;
-  pages: number;
+  title: string
+  author: string
+  pages: number
 }
 
 // Your code here 👇
+const book: Book = {
+  title: "The Great Gatsby",
+  author: "F. Scott Fitzgerald",
+  pages: 180,
+}
