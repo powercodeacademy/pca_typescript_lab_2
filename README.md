@@ -19,14 +19,14 @@ By the end of this lab, you'll be comfortable with:
 
 ## Getting Started
 
-First, fork and clone the repository and let's set up your environment:
+First, clone this repository to your local machine and install the required dependencies:
 
 ```bash
 npm install
 npm test
 ```
 
-The tests will guide you through each concept. Don't worry if they fail initially—that's how you'll learn what TypeScript expects!
+You should see test output showing which tests are passing and failing. Don't worry if tests are failing initially - that's expected! You'll be implementing the code to make them pass.
 
 ---
 
@@ -60,7 +60,17 @@ const book: Book = {
 
 Notice the `: Book` after the variable name? That's a **type annotation** telling TypeScript "this variable must match the Book interface." If you try to assign an object missing any of these properties, TypeScript will give you an error.
 
-**Try it yourself:** Open `src/section1_objects.ts` and create a `book` variable that matches the `Book` interface. The interface is already defined for you—just add your object!
+### Practice: Object Type Annotations
+
+**Your Task**: Open `src/section1_objects.ts` and complete the following:
+
+1. Create a variable called `book` that matches the `Book` interface
+2. Assign it an object with:
+   - `title`: a string (your favorite book title)
+   - `author`: a string (the author's name)
+   - `pages`: a number (the page count)
+
+**Hint**: The `Book` interface is already defined for you in the file. You just need to create a variable that follows this interface!
 
 ---
 
@@ -84,13 +94,15 @@ const students: Student[] = [
 
 The syntax `string[]` means "an array where every element is a string." This prevents you from accidentally adding a number to your colors array or a string to your ages array.
 
-**Your turn:** In `src/section2_arrays.ts`, create three arrays:
+### Practice: Typed Arrays
 
-- `colors` (array of strings)
-- `ages` (array of numbers)
-- `students` (array of objects with `name` and `grade`)
+**Your Task**: Open `src/section2_arrays.ts` and create three arrays:
 
-The `Student` type is already defined for you to use.
+1. **`colors`**: An array of strings containing at least 3 color names
+2. **`ages`**: An array of numbers containing at least 3 different ages
+3. **`students`**: An array of objects that match the `Student` type (with `name` and `grade` properties)
+
+**Hint**: The `Student` type is already defined for you. Each student object needs a `name` (string) and `grade` (number).
 
 ---
 
@@ -121,7 +133,21 @@ const userWithoutName: User = {
 
 The `?` tells TypeScript "this property might exist, or it might not." When you access `displayName`, TypeScript will remind you that it could be `undefined`.
 
-**Practice:** In `src/section3_optional_properties.ts`, create a `User` type with required `id` and `email`, plus an optional `displayName`. Then create two user objects—one with a display name and one without.
+### Practice: Optional Properties
+
+**Your Task**: Open `src/section3_optional_properties.ts` and complete the following:
+
+1. Create a `User` type with:
+
+   - `id`: number (required)
+   - `email`: string (required)
+   - `displayName`: string (optional - use the `?` operator)
+
+2. Create two user objects:
+   - `userWithName`: A user that has all three properties
+   - `userWithoutName`: A user that only has `id` and `email` (no `displayName`)
+
+**Hint**: Use the `?` operator after `displayName` to make it optional. Both user objects should be valid!
 
 ---
 
@@ -140,7 +166,23 @@ loadingStatus = "pending" // ❌ TypeScript error!
 
 This is called a **union type**—the `|` means "or." So `loadingStatus` can be "loading" OR "success" OR "error", but nothing else.
 
-**Try it:** In `src/section4_literal_types.ts`, create a `loadingStatus` variable that can only be "loading", "success", or "error". Try assigning different values to see TypeScript's type checking in action!
+### Practice: Literal Types
+
+**Your Task**: Open `src/section4_literal_types.ts` and complete the following:
+
+1. Create a `loadingStatus` variable that can only be "loading", "success", or "error"
+2. Assign it the value "loading" initially
+3. Try assigning different values to see TypeScript's type checking in action!
+
+**Expected behavior**:
+
+```typescript
+loadingStatus = "success" // ✅ Valid
+loadingStatus = "error" // ✅ Valid
+// loadingStatus = "pending" // ❌ TypeScript error!
+```
+
+**Hint**: Use the union type syntax with `|` to separate the allowed values. Try assigning an invalid value like "pending" to see TypeScript catch the error!
 
 ---
 
@@ -171,7 +213,19 @@ const phone: Product = {
 
 Type aliases are especially useful when you have complex types that you use in multiple places. Instead of writing out the full type definition each time, you create it once and reuse it.
 
-**Your challenge:** In `src/section5_type_alias.ts`, create a `Product` type alias and use it to create an `exampleProduct` variable.
+### Practice: Type Aliases
+
+**Your Task**: Open `src/section5_type_alias.ts` and complete the following:
+
+1. Create a `Product` type alias with:
+
+   - `id`: number
+   - `name`: string
+   - `price`: number
+
+2. Create an `exampleProduct` variable that uses this type alias
+
+**Hint**: Use the `type` keyword to create your alias, then use it as a type annotation for your variable.
 
 ---
 
@@ -181,23 +235,41 @@ Now that you understand the basics, let's model some real-world data structures.
 
 ### User Profiles
 
-In `src/section6_bonus_modelUser.ts`, you'll create a `UserProfile` type that models a typical user account. Think about what information a user profile might have—some required (like ID and email) and some optional (like bio or avatar).
+**Your Task**: Open `src/section6_bonus_modelUser.ts` and create a `UserProfile` type that models a typical user account.
+
+Think about what information a user profile might have:
+
+- **Required properties**: ID, email, username
+- **Optional properties**: bio, avatar URL, phone number
+
+Create a `userProfile` variable that demonstrates both required and optional properties.
 
 ### Shopping Cart
 
-In `src/section7_bonus_shoppingCart.ts`, you'll build a shopping cart system. You'll need to:
+**Your Task**: Open `src/section7_bonus_shoppingCart.ts` and build a shopping cart system:
 
-- Define what a cart item looks like
-- Create an array of cart items
-- Write a function that calculates the total cost
+1. Define a `CartItem` type with:
 
-This will combine everything you've learned: objects, arrays, type aliases, and functions.
+   - `id`: number
+   - `name`: string
+   - `price`: number
+   - `quantity`: number
+
+2. Create a `cartItems` array with at least 2 items
+
+3. Write a `calculateTotal` function that:
+   - Takes an array of `CartItem` objects
+   - Returns the total cost (sum of price × quantity for each item)
+
+**Expected behavior**:
+
+```typescript
+console.log(calculateTotal(cartItems)) // Should output 1049
+```
+
+This combines everything you've learned: objects, arrays, type aliases, and functions!
 
 ---
-
-## Ready to Start?
-
-Open `src/section1_objects.ts` and begin! The tests will guide you through each concept. Remember: TypeScript is here to help you write better code by catching errors early. Embrace the red squiggly lines—they're your friends! 🚀
 
 ### Common Troubleshooting
 
