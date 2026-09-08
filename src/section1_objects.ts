@@ -8,7 +8,7 @@ interface Book {
 
 // Your code here 👇
 const book: Book = {
-  title: "The Great Gatsby",
-  author: "F. Scott Fitzgerald",
-  pages: 180,
+  title: "Sentenced to be a Hero",
+  author: "Rocket Shokai",
+  pages: 3208,
 }
